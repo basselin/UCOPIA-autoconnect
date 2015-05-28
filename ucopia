@@ -2,7 +2,15 @@
 
 while true
 do
-    curl --header "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:37.0) Gecko/20100101 Firefox/37.0" --data "action=authenticate&login=LOGIN&password=PASSWORD&policy_accept=false" https://controller.mobile.lan/portal_api.php
     echo "\n"
-    sleep 600
+    content=$(curl --header "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:37.0) Gecko/20100101 Firefox/37.0" --data "action=authenticate&login=LOGIN&password=PASSWORD&policy_accept=false" https://controller.access.network/portal_api.php)
+    echo "\n"
+    if [[ "$content" =~ "CONNECT" ]]; then
+        echo "Vous êtes connecté!"
+        sleep 600
+    else
+        echo "$content\n"
+        echo "La connexion a échoué..."
+        sleep 6
+    fi
 done
