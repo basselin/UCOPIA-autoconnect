@@ -1,9 +1,18 @@
 #!/bin/sh
 
+# Veuillez saisir votre identifiant et votre mot de passe ci-dessous
+login="mon_identifiant"
+password="mon_mot_de_passe"
+
+# Les API possible
+api="https://controller.access.network/portal_api.php"
+#api="https://controller.mobile.lan/portal_api.php"
+
+# Lancer la connexion
 while true
 do
     echo "\n"
-    content=$(curl --header "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:37.0) Gecko/20100101 Firefox/37.0" --data "action=authenticate&login=LOGIN&password=PASSWORD&policy_accept=false" https://controller.access.network/portal_api.php)
+    content=$(curl --header "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:37.0) Gecko/20100101 Firefox/37.0" --data "action=authenticate&login=$login&password=$password&policy_accept=false" $api)
     echo "\n"
     if [[ "$content" =~ "CONNECT" ]]; then
         echo "Vous êtes connecté!"
