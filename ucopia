@@ -16,7 +16,7 @@ do
     echo "\n"
     if [[ "$content" =~ "CONNECT" ]]; then
         echo "Vous êtes connecté!"
-        sleep 600
+        sleep 3600
     else
         echo "$content\n"
         echo "La connexion a échoué..."
