@@ -18,7 +18,7 @@ REM set api=https://controller.mobile.lan/portal_api.php
 	del curl.log
 	echo.
 	echo Vous etes connecte!
-	timeout /t 600 /nobreak
+	timeout /t 3600 /nobreak
 goto :ucopia
 
 :curlError
